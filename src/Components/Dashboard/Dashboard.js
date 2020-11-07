@@ -5,31 +5,21 @@ export default class Dashboard extends Component {
   constructor() {
     super();
 
-    this.state = {
-      inventory: [
-        {
-          imgUrl: "imgURL",
-          productName: "hats",
-          price: 0,
-        },
-      ],
-    };
+
   }
 
   render() {
-    // const {inventory} = this.props
-    const mappedProducts = this.state.inventory.map((product) => (
-      <div>
-        <div>Image URL {product.imgUrl}</div>
-        <div>Image URL {product.imgUrl}</div>
-        <div>Image URL {product.imgUrl}</div>
+    const {inventory} = this.props
+    const mappedProducts = inventory.map((product) => (
+      <div className="intList" key= {product.id}>
+        <img src={product.image} />
+        <div>Product Name: {product.product_name}</div>
+        <div>Price $ {product.price}</div>
       </div>
     ));
     return (
       <div>
-        This is the Dashboard
-        <div>{mappedProducts}</div>
-        <Product />
+        <Product products = {mappedProducts} />
       </div>
     );
   }

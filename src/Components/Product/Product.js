@@ -8,9 +8,10 @@ export default class Product extends Component {
     }
 
     render(){
+        const {products} = this.props
         return(
             <div>
-                This is the Product
+                {products}
             </div>
         )
     }

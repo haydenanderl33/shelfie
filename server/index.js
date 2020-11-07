@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
+ctrl = require('./controller')
 
 const app = express()
 
@@ -19,6 +20,8 @@ massive({
 .catch(err => console.log(err))
 
 //ENDPOINTS
+app.get("/api/inventory",ctrl.getInventory)
+app.post("/api/inventory", ctrl.addInventory)
 
 app.listen(SERVER_PORT, () => {
     console.log(`Server running on ${SERVER_PORT}`)

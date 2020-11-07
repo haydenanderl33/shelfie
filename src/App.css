@@ -1,3 +1,4 @@
+
 header {
   display: flex;
   /* justify-content: center; */
@@ -16,7 +17,21 @@ header {
   margin-left: 150px;
 }
 
-form{
+form {
+height: 350px;
+width: 300px;
+
 display: inline-flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: #3AD886;
+margin-left: 1000px;
+
 }
+img {
+  flex: 1;
+  width: 50;
+  height: 50;
+  
+ }

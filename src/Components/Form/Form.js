@@ -6,8 +6,8 @@ export default class Form extends Component {
         super();
 
         this.state = {
-            imgUrl: "",
-            productName:"",
+            image: "",
+            product_name:"",
             price: 0
         }
 
@@ -15,15 +15,24 @@ export default class Form extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const {imgUrl,productName,price} = this.state
-        
+        const {product_name,price, image} = this.state
+        this.props.handleClick(product_name,price, image)
         this.setState({
-            imgUrl: "",
-            productName:"",
+            image: "",
+            product_name:"",
             price: 0
 
         })
     }
+
+
+    // handleCancel = () => {
+    //     this.setState({
+    //         image: "",
+    //         product_name:"", 
+    //         price: 0
+    //     })
+    // }
 
     handleChange(e){
         this.setState({
@@ -35,24 +44,23 @@ export default class Form extends Component {
     render(){
         return(
             <div>
-                This is the Form
                 <br/>
-                <form >
+                <form onSubmit={(e) => this.handleSubmit(e)}>
                     Img URL: <input
-                    name="imgUrl"
+                    name="image"
                     onChange={e =>this.handleChange(e)}/>
                     <br/>
                     Product Name:<input
-                    name="productName"
+                    name="product_name"
                     onChange={e =>this.handleChange(e)}
                     />
                     <br/>
-                    Price:<input
+                    Price$:<input
                     name="price"
                     placeholder="0"
                     onChange={e =>this.handleChange(e)}/>
-                <button type="reset" onClick={(e) => this.handleSubmit}>Cancel</button>
                 <button type='submit'>Add to Inventory</button>
+                {/* <button onClick={() => this.handleCancel()} >Cancel</button> */}
                 </form>
             </div>
         )
