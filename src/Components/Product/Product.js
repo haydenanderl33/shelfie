@@ -1,18 +1,21 @@
-import React, { Component } from 'react'
+import React from "react";
 
+function Product(props) {
+  const {product} = props
+  return (
+    <div className="product">
+      <img src={product.image} alt="shoe"/>
+      <div>
+        <h2>{product.product_name}</h2>
+        <h2>${product.price}</h2>
 
-export default class Product extends Component {
-    constructor(){
-        super();
-
-    }
-
-    render(){
-        const {products} = this.props
-        return(
-            <div>
-                {products}
-            </div>
-        )
-    }
+        <div className="btsm">
+        <button id="edit">Edit</button>
+        <button id="delete">Delete</button>
+        </div>
+      </div>
+    </div>
+  );
 }
+
+export default Product;

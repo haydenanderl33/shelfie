@@ -22,7 +22,8 @@ massive({
 //ENDPOINTS
 app.get("/api/inventory",ctrl.getInventory)
 app.post("/api/inventory", ctrl.addInventory)
-
+app.delete("/api/inventory/:id", ctrl.deleteInventory)
+app.put("/api/inventory/:id", ctrl.editInventory)
 app.listen(SERVER_PORT, () => {
     console.log(`Server running on ${SERVER_PORT}`)
 })
