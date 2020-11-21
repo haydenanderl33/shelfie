@@ -8,17 +8,25 @@ export default class Form extends Component {
     this.state = {
       image: "",
       product_name: "",
-      price: 0
+      price: ""
     };
   }
 
   addInventory = () => {
       const {image,product_name,price} = this.state;
       axios.post("/api/inventory", {product_name, image, price})
-      .then()
+      .then(this.props.history.push('/'))
       .catch(err => console.log(err))
       // {this.props.history.push('/')}
-      console.log(this.state)
+      
+  }
+
+  cancelInput = () => {
+    this.setState({
+      image: "",
+      product_name: "",
+      price: ""
+    })
   }
 
 
@@ -54,6 +62,7 @@ handleAllInputs = (event) => {
           onChange={this.handleAllInputs}/>
           <br/>
           <button onClick={()=>this.addInventory()}>Add</button>
+          <button onClick={()=>this.cancelInput()}>Cancel</button>
         </form>
       </div>
     );
