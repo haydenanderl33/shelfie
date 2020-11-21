@@ -22,15 +22,24 @@ export default class Dashboard extends Component {
     this.setState({inventory: res.data})
   })
   .catch(err =>{
-    console.log("It not working right")
+    console.log("It not working right") 
   })}
+
+  deleteInventory = (id) =>{
+    axios.delete(`/api/inventory/${id}`)
+    .then(this.getInventory())
+    // .then(res => console.log('howboutnow'))
+    .catch(err =>{
+      console.log(err)
+    })} 
 
 
 
   render() {
     const {inventory} = this.state
     const mappedProducts = inventory.map(product => {
-      return <Product key={product.id} product={product} />
+      return <Product key={product.id} product={product} 
+      deleteInventory={this.deleteInventory} /> 
     })
     return (
       <div className="Dashboardbox">

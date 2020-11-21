@@ -20,6 +20,7 @@ module.exports = {
     deleteInventory: (req,res) => {
         const db = req.app.get('db')
         const {id} = req.params
+        console.log(id)
         db.delete_Inventory(+id)
         .then(() => res.send('all gucci'))
         .catch((err) => res.status(500).send(err))

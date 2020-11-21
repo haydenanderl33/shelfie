@@ -1,1 +1,7 @@
-SELECT * FROM shelfie
+-- SELECT * FROM shelfie;
+
+SELECT id
+FROM shelfie
+ORDER BY id ASC;
+
+SELECT * FROM shelfie;

@@ -41,29 +41,36 @@ handleAllInputs = (event) => {
   render() {
     return (
       <div className="formBox">
-          <img alt=""/>
+          <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-VnVsmlBXhArKiHI9104yXZLF_Cu1mVQe3w&usqp=CAU"} alt=""/>
+          <br/>
         <form>
           <input
           name="image"
           type="text"
+          placeholder="image URL"
           value={this.state.image} 
           onChange={this.handleAllInputs}/>
           <br/>
           <input
           name="product_name"
           type="text"
+          placeholder="Product Name"
           value={this.state.product_name} 
           onChange={this.handleAllInputs}/>
           <br/>
           <input
           name="price"
           type="text"
+          placeholder="Price"
           value={this.state.price} 
           onChange={this.handleAllInputs}/>
           <br/>
-          <button onClick={()=>this.addInventory()}>Add</button>
-          <button onClick={()=>this.cancelInput()}>Cancel</button>
         </form>
+        <div className="formbtns">
+        <button className="btn2"onClick={()=>this.cancelInput()}>Cancel</button>
+        <br/>
+        <button className="btn1" onClick={()=>this.addInventory()}>Add To Inventory</button>
+        </div>
       </div>
     );
   }

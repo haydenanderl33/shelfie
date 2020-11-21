@@ -3,3 +3,4 @@ INSERT INTO shelfie
 VALUES
 (${product_name}, ${price}, ${image})
 RETURNING *;
+
