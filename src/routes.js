@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Dashboard from './Components/Dashboard/Dashboard'
-import Form from './Components/Form/Form'
+import AddProduct from './Components/Form/AddProduct';
+import EditProduct from './Components/Form/EditProduct'
 
 export default (
     <Switch>
         <Route exact path='/' component={Dashboard}/>
-        <Route path='/add' component={Form}/>
-        <Route path='/edit/id' component={Form}/>
+        <Route path='/add' component={AddProduct}/>
+        <Route path='/edit/:id' component={EditProduct}/>
     </Switch>
 )

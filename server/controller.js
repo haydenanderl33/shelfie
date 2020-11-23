@@ -20,19 +20,29 @@ module.exports = {
     deleteInventory: (req,res) => {
         const db = req.app.get('db')
         const {id} = req.params
-        console.log(id)
+        // console.log(id)
         db.delete_Inventory(+id)
         .then(() => res.send('all gucci'))
         .catch((err) => res.status(500).send(err))
     },
     editInventory: (req,res) => {
         const db = req.app.get('db')
-        const {id} = req.params
-        const {product_name,image,price} = req.body
+        const {id} = req.params;
+        const {product_name,image,price} = req.body;
+        console.log(id)
+        console.log(product_name,image,price)
         db.edit_Inventory([+id, product_name, image, price])
         .then((updatedProduct) => res.status(200).send(updatedProduct))
         .catch(err => res.status(500).send(err))
 
+    },
+    getInventoryById: (req,res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+        console.log(id)
+        db.get_Inventory_By_Id(+id)
+        .then(product => res.status(200).send(product[0]))
+        .catch((err => res.status(500).send(err)))
     }
 
 }
