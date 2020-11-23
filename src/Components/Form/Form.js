@@ -32,6 +32,7 @@ class Form extends Component {
       price: ""
     })
   }
+  cancelEditInput = () => this.props.history.push('/');
 
   componentDidUpdate(prevProps){
     const {product} = this.props
@@ -123,7 +124,7 @@ handleAllInputs = (event) => {
     <br/>
   </form>
   <div className="formbtns">
-  <button className="btn2"onClick={()=>this.cancelInput()}>Cancel</button>
+  <button className="btn2"onClick={()=>this.cancelEditInput()}>Cancel</button>
   <br/>
   <button className="btn1" onClick={()=>this.editInventory(product.id)}>Save Changes</button>
   </div>
